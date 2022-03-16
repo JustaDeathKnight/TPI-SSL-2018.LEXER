@@ -1,0 +1,91 @@
+Ejemplo 1:
+	Entrada
+		CREATE TABLE Foods (
+			name CHAR(8) NOT NULL,
+			type CHAR(5),
+			flavor CHAR(6),
+			PRIMARY KEY ( name )
+		)
+Salida
+TOKEN: TKN_CREATE
+TOKEN: TKN_TABLE
+TOKEN: TKN_ID Foods
+TOKEN: TKN_APAR
+TOKEN: TKN_ID name
+TOKEN: TKN_TYPE
+TOKEN: TKN_APAR
+TOKEN: TKN_INT 8
+TOKEN: TKN_CPAR
+TOKEN: TKN_ID NOT
+TOKEN: TKN_ID NULL
+TOKEN: TKN_COMA
+TOKEN: TKN_ID type
+TOKEN: TKN_TYPE
+TOKEN: TKN_APAR
+TOKEN: TKN_INT 5
+TOKEN: TKN_CPAR
+TOKEN: TKN_COMA
+TOKEN: TKN_ID flavor
+TOKEN: TKN_TYPE
+TOKEN: TKN_APAR
+TOKEN: TKN_INT 6
+TOKEN: TKN_CPAR
+TOKEN: TKN_COMA
+TOKEN: TKN_ID PRIMARY
+TOKEN: TKN_ID KEY
+TOKEN: TKN_APAR
+TOKEN: TKN_ID name
+TOKEN: TKN_CPAR
+TOKEN: TKN_CPAR
+EOF
+
+Ejemplo 2
+	Entrada
+		CREATE TABLE Courses (
+			course CHAR(8) NOT NULL PRIMARY KEY,
+			flavor CHAR(6),
+			sequence INTEGER
+		)
+Salida
+TOKEN: TKN_CREATE
+TOKEN: TKN_TABLE
+TOKEN: TKN_ID Courses
+TOKEN: TKN_APAR
+TOKEN: TKN_ID course
+TOKEN: TKN_TYPE
+TOKEN: TKN_APAR
+TOKEN: TKN_INT 8
+TOKEN: TKN_CPAR
+TOKEN: TKN_ID NOT
+TOKEN: TKN_ID NULL
+TOKEN: TKN_ID PRIMARY
+TOKEN: TKN_ID KEY
+TOKEN: TKN_COMA
+TOKEN: TKN_ID flavor
+TOKEN: TKN_TYPE
+TOKEN: TKN_APAR
+TOKEN: TKN_INT 6
+TOKEN: TKN_CPAR
+TOKEN: TKN_COMA
+TOKEN: TKN_ID sequence
+TOKEN: TKN_TYPE
+TOKEN: TKN_CPAR
+EOF
+
+Ejemplo 3:
+	Entrada
+	CREATE TABLE Courses 
+ 	  %% NOT NULL ?
+  	{ }
+Salida
+TOKEN: TKN_CREATE
+TOKEN: TKN_TABLE
+TOKEN: TKN_ID Courses
+Error, el simbolo o sentencia no fue recnocida 
+Error, el simbolo o sentencia no fue recnocida 
+TOKEN: TKN_ID NOT
+TOKEN: TKN_ID NULL
+Error, el simbolo o sentencia no fue recnocida 
+Error, el simbolo o sentencia no fue recnocida 
+Error, el simbolo o sentencia no fue recnocida 
+EOF

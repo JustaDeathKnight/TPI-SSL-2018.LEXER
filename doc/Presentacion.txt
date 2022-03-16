@@ -1,0 +1,40 @@
+UNIVERSIDAD TECNOLÓGICA NACIONAL
+FACULTAD REGIONAL RESISTENCIA
+INGENIERÍA EN SISTEMAS DE INFORMACIÓN
+SINTAXIS Y SEMANTICA DE LOS LENGUAJES
+TPI Analizador Léxico 1ra entrega
+
+Integrantes:
+•	Acevedo, Ariel Alexander.
+•	Obregón, Elías Javier.
+•	Thouzeau, Edgardo Hernán.
+
+Comisión: 2° “A”
+AÑO 2018
+
+Análisis Léxico (1ª entrega)
+El analizador léxico, también conocido como scanner, lee los caracteres uno a uno desde la entrada y va formando grupos de caracteres con alguna relación entre sí (tokens), que constituirán la entrada para la siguiente etapa del compilador, Cada token representa una secuencia de caracteres que son tratados como una única entidad. Por ejemplo, en SQL un token es la palabra reservada SELECT.
+ Ya que es el que va leyendo los caracteres del programa, ignorará aquellos elementos innecesarios para la siguiente fase, como los tabuladores, comentarios, espacios en blanco, etc.
+Se trata de implementar un analizador léxico, en el que exista una función que devuelva el siguiente token, es decir, que devuelva el tipo de token en forma de constante intera, y su lexema, en forma de cadena. En esta primera fase de la práctica, y con la finalidad de comprobar que funciona correctamente, esta función será llamada por una función main, que solicitará nuevos tokens hasta que se agote el texto del archivo que contiene las consultas en SQL.
+El programa deberá imprimir una lista de tokens de la forma (tipo_de_token, lexema) como resultado, deteniéndose en el caso de un error léxico e indicando la línea y columna del texto fuente donde éste se produjo.
+
+Algunos ejemplos de componentes léxicos a reconocer son los siguientes:
+TKN_NUM = digito+ (. digito+ )?
+TKN_ID = letra (letra | digito)*
+# siendo digito = 0 | 1 | ... | 9 letra = a | b | ... | z | A | B | ... | Z
+#Símbolos especiales
+TKN_APAR 	(
+TKN_CPAR	)
+TKN_PTOCOMA 	;
+TKN_PTO 	.
+#Palabras reservadas:	
+CREATE 	TKN_CREATE
+TABLE 	TKN_TABLE
+SELECT 	TKN_SELECT
+FROM 	TKN_FROM
+WHERE 	TKN_WHERE
+GROUP 	TKN_GROUP
+BY 	TKN_BY
+#Funciones sobre campos agregados:
+AVG TKN_AVG //calcula el promedio SUM TKN_SUM //calcula la suma MAX TKN_MAX
+# Operadores: <,>,>=,<=,= ,!=, and, or.
